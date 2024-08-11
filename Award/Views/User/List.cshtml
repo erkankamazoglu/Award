@@ -1,0 +1,49 @@
+﻿@using AwardWeb.Models
+@model List<User>
+
+@{
+    ViewData["Title"] = "Kullanıcı Listesi";
+}
+
+<h2>Kullanıcı Listesi</h2>
+ 
+<div class="button-container">
+    <a role="button" aria-disabled="true" class="btn btn-success" href="@Url.Action("Add", "User")">Yeni Ekle</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ad Soyad</th>
+            <th scope="col">E-posta</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int counter = 0;
+            foreach (User user in Model)
+            {
+                counter++;
+
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@user.NameSurname</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", "User", new { id = user.Id })" role="button" aria-disabled="true">
+                            Güncelle
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", "User", new { id = user.Id })" role="button" aria-disabled="true">
+                            Sil
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+ 
+@section styles {
+    <link rel="stylesheet" href="~/css/list-style.css" asp-append-version="true" />
+}

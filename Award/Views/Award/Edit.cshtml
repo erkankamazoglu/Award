@@ -1,0 +1,57 @@
+﻿@using AwardWeb.Models
+@model Award
+@{
+    ViewData["Title"] = "Yeni Başarım Oluştur";
+    List<Category> categories = ViewBag.Categories;
+}
+
+<h2>Yeni Başarım Oluştur</h2>
+
+<form asp-controller="Award" asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId"></label>
+        <select class="form-select" asp-for="CategoryId" aria-label="-Seçiniz-">
+            @{
+                foreach (Category category in categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BorderColor"></label>
+        <input asp-for="BorderColor" class="form-control" />
+        <span asp-validation-for="BorderColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FontColor"></label>
+        <input asp-for="FontColor" class="form-control" />
+        <span asp-validation-for="FontColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FontClass"></label>
+        <input asp-for="FontClass" class="form-control" />
+        <span asp-validation-for="FontClass" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a href="@Url.Action("List","Award")" class="btn btn-secondary" role="button" aria-disabled="true">Geri Dön</a>
+</form>
+
+
+@section scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/form-style.css" asp-append-version="true" />
+}

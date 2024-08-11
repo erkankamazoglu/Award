@@ -1,0 +1,93 @@
+/* Yeni Ekle Butonu Konteyneri */
+.button-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+/* Yeni Ekle Butonu */
+.btn-success {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #43A2E1;
+    border-color: #43A2E1;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+    display: inline-block;
+    color: #fff; /* Yazý rengi beyaz */
+}
+
+    .btn-success:hover {
+        background-color: #3691cc; /* Ana renkten biraz daha koyu */
+        border-color: #3691cc;
+        color: #fff; /* Yazý rengi beyaz */
+    }
+
+/* Tablo */
+.table {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+    /* Tablo Baþlýðý */
+    .table thead th {
+        padding: 15px;
+        text-align: left;
+        font-size: 1rem;
+        background-color: #312F2F; /* Arka plan rengi burada belirleniyor */
+        color: #ecf0f1; /* Yazý rengi */
+    }
+
+    /* Tablo Gövdesi */
+    .table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    .table tbody td {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+
+/* Ýþlem Butonlarý */
+.btn-warning {
+    background-color: #33D197;
+    border-color: #33D197;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .btn-warning:hover {
+        background-color: #2fb586; /* Ana renkten biraz daha koyu */
+        border-color: #2fb586;
+        color: #fff; /* Yazý rengi beyaz */
+    }
+
+.btn-danger {
+    background-color: #EF626C;
+    border-color: #EF626C;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .btn-danger:hover {
+        background-color: #d3545b; /* Ana renkten biraz daha koyu */
+        border-color: #d3545b;
+        color: #fff; /* Yazý rengi beyaz */
+    }

@@ -1,8 +1,9 @@
-﻿namespace Award.Models
+﻿using AwardWeb.Models.Base;
+
+namespace AwardWeb.Models
 {
-    public class Category
-    {
-        public int Id { get; set; }
+    public class Category : BaseEntity
+    { 
         public string Name { get; set; }
     }
 }

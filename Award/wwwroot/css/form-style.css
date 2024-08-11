@@ -1,0 +1,91 @@
+/* Form Container */
+form {
+    width: 100%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #2c3e50;
+} 
+
+/* Form Group */
+.form-group {
+    margin-bottom: 25px;
+}
+
+    /* Labels */
+    .form-group label {
+        font-size: 1.1rem;
+        color: #2c3e50;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    /* Input Fields */
+    .form-group input.form-control {
+        height: 45px;
+        font-size: 1rem;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ecf0f1;
+        border: 1px solid #ced4da;
+        color: #4a6373; /* Yazý rengini biraz daha açýk hale getirdik */
+        transition: border-color 0.3s ease-in-out;
+        width: 100%;
+    }
+
+        .form-group input.form-control:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: none;
+            color: #3a4d5c; /* Focus durumunda yazý rengini biraz daha koyu hale getirdik */
+        }
+
+/* Validation Messages */
+.text-danger {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: #e74c3c;
+}
+
+/* Form Buttons Container */
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Buttonlar arasýndaki boþluk */
+}
+
+/* Buttons */
+button.btn, a.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    min-width: 120px; /* Butonlarýn minimum geniþliði */
+}
+
+/* Geri Dön Button */
+button.btn-secondary, a.btn-secondary {
+    background-color: #312F2F;
+    border-color: #312F2F;
+    color: #fff;
+}
+
+    button.btn-secondary:hover, a.btn-secondary:hover {
+        background-color: #4a4949; /* Ana renkten biraz daha açýk */
+        border-color: #4a4949;
+    }
+
+/* Kaydet (Güncelle) Button */
+button.btn-primary {
+    background-color: #43A2E1; /* Güncelle butonunu yeþil yap */
+    border-color: #43A2E1;
+    color: #fff;
+}
+
+    button.btn-primary:hover {
+        background-color: #3691cc; /* Ana renkten biraz daha koyu */
+        border-color: #3691cc;
+        color: #fff;
+    }

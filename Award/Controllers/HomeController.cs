@@ -1,8 +1,8 @@
-﻿using Award.Models;
-using Award.Models.Base;
-using Microsoft.AspNetCore.Mvc; 
+﻿using AwardWeb.Models;
+using AwardWeb.Models.Base;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Award.Controllers
+namespace AwardWeb.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,11 +14,8 @@ namespace Award.Controllers
         }
 
         public IActionResult Index()
-        {
-            List<User> users = _context.User.ToList();
-
-            _context.User.Add(new User { Name = "Test", Email = "", Surname = "Test2", Password = "AAA"}); 
-            return View(users);
+        { 
+            return View();
         }
     }
 }

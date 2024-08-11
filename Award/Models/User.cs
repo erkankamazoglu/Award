@@ -1,11 +1,30 @@
-﻿namespace Award.Models
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using AwardWeb.Models.Base;
+
+namespace AwardWeb.Models
 {
-    public class User
-    {
-        public int Id { get; set; }
+    public class User : BaseEntity
+    { 
+        [DisplayName("Adı")] 
+        [Required] 
         public string Name { get; set; }
+
+        [DisplayName("Soyadı")]
+        [Required]
         public string Surname { get; set; }
+
+        [NotMapped]
+        public string NameSurname => $"{Name} {Surname}";
+
+        [DisplayName("E-posta")]
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
-        public string Password { get; set; }
+
+        [DisplayName("Şifre")]
+        [Required]
+        public string Password { get; set; } 
     }
 }

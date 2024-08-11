@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Award.Models.Base
+namespace AwardWeb.Models.Base
 {
     public class ModelContext : DbContext
     {

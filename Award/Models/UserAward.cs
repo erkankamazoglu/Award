@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using AwardWeb.Models.Base;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Award.Models
+namespace AwardWeb.Models
 {
-    public class UserAward
-    {
-        public int Id { get; set; }
+    public class UserAward : BaseEntity
+    { 
 
         [ForeignKey("User")]
         public int UserId { get; set; }

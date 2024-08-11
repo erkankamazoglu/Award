@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Award.Migrations
+namespace AwardWeb.Migrations
 {
     /// <inheritdoc />
     public partial class IntialDb : Migration

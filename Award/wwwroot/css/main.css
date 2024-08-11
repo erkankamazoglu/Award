@@ -1,0 +1,21 @@
+h2 {
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Yuvarlaðýn geniþliði */
+    height: 40px; /* Yuvarlaðýn yüksekliði */
+    border: 5px solid rgba(0, 0, 0, 0.2); /* 2px geniþliðinde yarý þeffaf çerçeve */
+    border-radius: 50%; /* Yuvarlak çerçeve */
+    background-color: transparent; /* Arka plan rengi */
+}
+
+.icon-circle i {
+    font-size: 20px; /* Ýkonun boyutu */
+}
