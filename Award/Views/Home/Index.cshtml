@@ -1,0 +1,18 @@
+﻿@using Award.Models
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<User>
+
+
+@{
+    foreach (var user in Model)
+    {
+        <div>
+            <h4>@(user.Name)</h4>
+            <p>@user.Surname</p> 
+            <p>@user.Email</p>
+        </div>
+    }
+}
+
