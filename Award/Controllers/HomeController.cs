@@ -17,9 +17,7 @@ namespace Award.Controllers
         {
             List<User> users = _context.User.ToList();
 
-            _context.User.Add(new User { Name = "Test", Email = "", Surname = "Test2", Password = "AAA"});
-
-            _context.User. 
+            _context.User.Add(new User { Name = "Test", Email = "", Surname = "Test2", Password = "AAA"}); 
             return View(users);
         }
     }
