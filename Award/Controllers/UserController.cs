@@ -44,6 +44,7 @@ namespace AwardWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(User user)
         {
+            user.UpdateDate = DateTime.Now;
             _context.User.Update(user);
             _context.SaveChanges();
             return RedirectToAction("List");
