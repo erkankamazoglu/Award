@@ -42,6 +42,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AwardEntity\AwardEntity.csproj" />
+    <ProjectReference Include="..\Utility\Utility.csproj" />
   </ItemGroup>
 
 </Project>

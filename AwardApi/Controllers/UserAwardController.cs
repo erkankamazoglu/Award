@@ -1,5 +1,7 @@
-﻿
+﻿using AwardEntity;
+using AwardEntity.Base;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore; 
 
 namespace AwardApi.Controllers
 {
@@ -16,7 +18,7 @@ namespace AwardApi.Controllers
         [Route("Api/GetList")]
         [HttpGet]
         public List<UserAward> GetList()
-        {
+        { 
             List<UserAward> userAwards = _context.UserAward
                 .Include(ua => ua.User)
                 .Include(ua => ua.Award)
