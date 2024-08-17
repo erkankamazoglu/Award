@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AwardEntity.Base
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity : IBaseEntity
     {
         [Key]
         public virtual int Id { get; set; }

@@ -1,28 +1,33 @@
-﻿using AwardEntity;
-using AwardEntity.Base;
+﻿using AwardEntity; 
+using AwardService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AwardWeb.Controllers
 {
     public class AwardController : Controller
     {
-        private readonly ModelContext _context;
+        private readonly AwardService.AwardService _awardService;
+        private readonly CategoryService _categoryService;
 
-        public AwardController(ModelContext context)
+        public AwardController(AwardService.AwardService awardService, CategoryService categoryService)
         {
-            _context = context;
+            _awardService = awardService;
+            _categoryService = categoryService;
         }
 
         public IActionResult List()
         {
-            List<Award> awards = _context.Award.ToList();
+            List<Award> awards = _awardService.GetAll(new List<string>
+            {
+                nameof(Award.Category)
+            }).ToList();
             return View(awards);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            List<Category> categories = _context.Category.ToList();
+            List<Category> categories = _categoryService.GetAll().ToList();
             ViewBag.Categories = categories;
             return View();
         }
@@ -31,37 +36,29 @@ namespace AwardWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Add(Award award)
         {
-            _context.Award.Add(award);
-            _context.SaveChanges();
+            _awardService.Add(award);
             return RedirectToAction("List");
         }
 
         public IActionResult Edit(int id)
         {
-            Award user = _context.Award.Find(id)!;
-            List<Category> categories = _context.Category.ToList();
+            Award award = _awardService.GetById(id)!;
+            List<Category> categories = _categoryService.GetAll().ToList();
             ViewBag.Categories = categories;
-            return View(user);
+            return View(award);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Award award)
         {
-            award.UpdateDate = DateTime.Now;
-            _context.Award.Update(award);
-            _context.SaveChanges();
+            _awardService.Update(award);
             return RedirectToAction("List");
         }
 
         public IActionResult Delete(int id)
         {
-            Award? award = _context.Award.Find(id);
-            if (award != null)
-            {
-                _context.Award.Remove(award);
-                _context.SaveChanges();
-            }
+            _awardService.Delete(id);
             return RedirectToAction("List");
         }
     }

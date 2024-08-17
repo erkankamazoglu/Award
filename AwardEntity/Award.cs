@@ -4,7 +4,7 @@ using AwardEntity.Base;
 
 namespace AwardEntity
 {
-    public class Award :BaseEntity
+    public class Award : BaseEntity
     {  
         [Display(Name = "Başarım")]
         public string Name { get; set; }

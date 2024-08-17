@@ -1,28 +1,29 @@
-﻿using AwardEntity;
-using AwardEntity.Base;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore; 
+﻿using AwardEntity; 
+using AwardService;
+using Microsoft.AspNetCore.Mvc; 
 
 namespace AwardApi.Controllers
 {
     [ApiController]
     public class UserAwardController : ControllerBase
     {
-        private readonly ModelContext _context;
+        private readonly UserAwardService _userAwardService;
 
-        public UserAwardController(ModelContext context)
+        public UserAwardController(UserAwardService userAwardService)
         {
-            _context = context;
+            _userAwardService = userAwardService;
         }
 
         [Route("Api/GetList")]
         [HttpGet]
         public List<UserAward> GetList()
-        { 
-            List<UserAward> userAwards = _context.UserAward
-                .Include(ua => ua.User)
-                .Include(ua => ua.Award)
-                .ToList();
+        {  
+            List<UserAward> userAwards = _userAwardService.GetAll(new List<string>
+            {
+                nameof(UserAward.User),
+                nameof(UserAward.Award)
+            }).ToList();
+                
             return userAwards;
         }
     }

@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Utility.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,17 +1,9 @@
-﻿using AwardEntity.Base;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace AwardWeb.Controllers
 {
     public class HomeController : Controller
-    {
-        private readonly ModelContext _context;
-
-        public HomeController(ModelContext context)
-        {
-            _context = context;
-        }
-
+    { 
         public IActionResult Index()
         { 
             return View();

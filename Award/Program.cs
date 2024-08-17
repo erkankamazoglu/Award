@@ -1,4 +1,5 @@
 using AwardEntity.Base;
+using AwardService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
@@ -10,15 +11,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ModelContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-var app = builder.Build();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<AwardService.AwardService>();
+builder.Services.AddScoped<UserAwardService>();
+builder.Services.AddScoped<CategoryService>();
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
-    RequestPath = "/vendor"
-});
-
+var app = builder.Build(); 
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -29,7 +27,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
+    RequestPath = "/vendor"
+}); 
 
 app.UseRouting();
 

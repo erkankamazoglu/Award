@@ -1,4 +1,5 @@
 using AwardEntity.Base;
+using AwardService;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ModelContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<AwardService.AwardService>();
+builder.Services.AddScoped<UserAwardService>();
+builder.Services.AddScoped<CategoryService>();
 
 var app = builder.Build();
 

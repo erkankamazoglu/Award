@@ -1,21 +1,21 @@
 ﻿using AwardEntity;
-using AwardEntity.Base;
+using AwardService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AwardWeb.Controllers
 {
     public class UserController : Controller
     {
-        private readonly ModelContext _context;
+        private UserService _userService; 
 
-        public UserController(ModelContext context)
+        public UserController(UserService userService)
         {
-            _context = context;
+            _userService = userService; 
         }
 
         public IActionResult List()
         {
-            List<User> users = _context.User.ToList();
+            List<User> users = _userService.GetAll().ToList();
             return View(users);
         }
 
@@ -28,15 +28,14 @@ namespace AwardWeb.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Add(User user)
-        {
-            _context.User.Add(user);
-            _context.SaveChanges();
+        { 
+            _userService.Add(user); 
             return RedirectToAction("List");
         }
 
         public IActionResult Edit(int id)
         {
-            User user = _context.User.Find(id)!;
+            User user = _userService.GetById(id)!;
             return View(user);
         }
 
@@ -44,20 +43,13 @@ namespace AwardWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(User user)
         {
-            user.UpdateDate = DateTime.Now;
-            _context.User.Update(user);
-            _context.SaveChanges();
+            _userService.Update(user);
             return RedirectToAction("List");
         }
 
         public IActionResult Delete(int id)
         {
-            User? user = _context.User.Find(id);
-            if (user != null)
-            {
-                _context.User.Remove(user);
-                _context.SaveChanges();
-            }
+            _userService.Delete(id);
             return RedirectToAction("List");
         }
     }
