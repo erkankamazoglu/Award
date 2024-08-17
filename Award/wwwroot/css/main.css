@@ -14,6 +14,7 @@ h2 {
     border: 5px solid rgba(0, 0, 0, 0.2); /* 2px geniþliðinde yarý þeffaf çerçeve */
     border-radius: 50%; /* Yuvarlak çerçeve */
     background-color: transparent; /* Arka plan rengi */
+    margin-bottom:2px;
 }
 
 .icon-circle i {

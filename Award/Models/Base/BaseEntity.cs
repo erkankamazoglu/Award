@@ -12,6 +12,6 @@ namespace AwardWeb.Models.Base
         public DateTime AddDate { get; set; }
 
         [DisplayName("Güncellenme Tarihi")]
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
     }
 }

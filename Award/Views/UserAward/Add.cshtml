@@ -1,0 +1,51 @@
+﻿@using AwardWeb.Models
+@model UserAward
+@{
+    ViewData["Title"] = "Kullanıcı Kaydı Ekleme";
+
+    List<User> users = ViewBag.Users;
+    List<Award> awards = ViewBag.Awards; 
+} 
+
+<h2>Yeni Kullanıcı Oluştur</h2>
+
+<form asp-controller="UserAward" asp-action="Add" method="post"> 
+    @Html.AntiForgeryToken() 
+
+    <div class="form-group">
+        <label asp-for="UserId"></label>
+        <select class="form-select" asp-for="UserId" aria-label="-Seçiniz-">
+            @{
+                foreach (User user in users)
+                {
+                    <option value="@user.Id">@user.NameSurname</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AwardId"></label>
+        <select class="form-select" asp-for="AwardId" aria-label="-Seçiniz-">
+            @{
+                foreach (Award award in awards)
+                {
+                    <option value="@award.Id">@award.Name</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="AwardId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a href="@Url.Action("List","User")" class="btn btn-secondary" role="button" aria-disabled="true">Geri Dön</a>
+</form>
+
+
+@section scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} 
+@section styles {
+    <link rel="stylesheet" href="~/css/form-style.css" asp-append-version="true" />
+}
