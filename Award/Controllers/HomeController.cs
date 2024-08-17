@@ -1,5 +1,4 @@
-﻿using AwardWeb.Models;
-using AwardWeb.Models.Base;
+﻿using AwardEntity.Base;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AwardWeb.Controllers

@@ -1,4 +1,4 @@
-using AwardWeb.Models.Base;
+using AwardEntity.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 

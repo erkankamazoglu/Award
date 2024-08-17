@@ -1,5 +1,5 @@
-﻿@using AwardWeb.Models
-@model UserAward
+﻿@using AwardEntity
+@model AwardEntity.UserAward
 @{
     ViewData["Title"] = "Kullanıcı Kaydı Ekleme";
 
@@ -37,7 +37,7 @@
         <span asp-validation-for="AwardId" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Kaydet</button>
-    <a href="@Url.Action("List","User")" class="btn btn-secondary" role="button" aria-disabled="true">Geri Dön</a>
+    <a href="@Url.Action("List","UserAward")" class="btn btn-secondary" role="button" aria-disabled="true">Geri Dön</a>
 </form>
 
 

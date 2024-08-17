@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,10 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\UserAward\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AwardEntity\AwardEntity.csproj" />
   </ItemGroup>
 
 </Project>

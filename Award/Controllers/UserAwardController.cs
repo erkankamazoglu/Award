@@ -1,5 +1,5 @@
-﻿using AwardWeb.Models.Base;
-using AwardWeb.Models;
+﻿using AwardEntity;
+using AwardEntity.Base;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +18,8 @@ namespace AwardWeb.Controllers
         {
             List<UserAward> userAwards = _context.UserAward
                 .Include(ua => ua.User)
-                .Include(ua => ua.Award).ToList();
+                .Include(ua => ua.Award)
+                .ToList();
             return View(userAwards);
         }
 

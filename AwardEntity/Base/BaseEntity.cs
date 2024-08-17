@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace AwardWeb.Models.Base
+namespace AwardEntity.Base
 {
     public abstract class BaseEntity
     {

@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using AwardWeb.Models.Base;
+using AwardEntity.Base;
 
-namespace AwardWeb.Models
+namespace AwardEntity
 {
     public class User : BaseEntity
     { 
