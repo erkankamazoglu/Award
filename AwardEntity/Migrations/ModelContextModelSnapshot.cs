@@ -2,19 +2,18 @@
 using System;
 using AwardEntity.Base;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure; 
-using Microsoft.EntityFrameworkCore.Migrations; 
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AwardWeb.Migrations
+namespace AwardEntity.Migrations
 {
     [DbContext(typeof(ModelContext))]
-    [Migration("20240817081456_DB3")]
-    partial class DB3
+    partial class ModelContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,7 +22,7 @@ namespace AwardWeb.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AwardWeb.Models.Award", b =>
+            modelBuilder.Entity("AwardEntity.Award", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +52,7 @@ namespace AwardWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -63,7 +62,7 @@ namespace AwardWeb.Migrations
                     b.ToTable("Award");
                 });
 
-            modelBuilder.Entity("AwardWeb.Models.Category", b =>
+            modelBuilder.Entity("AwardEntity.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,7 +77,7 @@ namespace AwardWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -86,7 +85,7 @@ namespace AwardWeb.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("AwardWeb.Models.User", b =>
+            modelBuilder.Entity("AwardEntity.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -113,7 +112,7 @@ namespace AwardWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -121,7 +120,7 @@ namespace AwardWeb.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("AwardWeb.Models.UserAward", b =>
+            modelBuilder.Entity("AwardEntity.UserAward", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -135,7 +134,7 @@ namespace AwardWeb.Migrations
                     b.Property<int>("AwardId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
@@ -150,9 +149,9 @@ namespace AwardWeb.Migrations
                     b.ToTable("UserAward");
                 });
 
-            modelBuilder.Entity("AwardWeb.Models.Award", b =>
+            modelBuilder.Entity("AwardEntity.Award", b =>
                 {
-                    b.HasOne("AwardWeb.Models.Category", "Category")
+                    b.HasOne("AwardEntity.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -161,15 +160,15 @@ namespace AwardWeb.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("AwardWeb.Models.UserAward", b =>
+            modelBuilder.Entity("AwardEntity.UserAward", b =>
                 {
-                    b.HasOne("AwardWeb.Models.Award", "Award")
+                    b.HasOne("AwardEntity.Award", "Award")
                         .WithMany()
                         .HasForeignKey("AwardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AwardWeb.Models.User", "User")
+                    b.HasOne("AwardEntity.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

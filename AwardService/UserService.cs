@@ -1,5 +1,6 @@
 ﻿using AwardEntity;
 using Dal;
+using Utility.Security;
 
 namespace AwardService
 {
@@ -7,16 +8,9 @@ namespace AwardService
     {
         public override void Add(User entity)
         {
+            entity.Password = PasswordHash.Hash(entity.Password);
+
             base.Add(entity);
-
-            UserAward userAward = new()
-            {
-                UserId = entity.Id,
-                AwardId = 1
-            };
-
-            UserAwardService userAwardService = new();
-            userAwardService.Add(userAward);
-        } 
+        }
     }
 }

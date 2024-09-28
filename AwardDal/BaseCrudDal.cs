@@ -33,7 +33,7 @@ namespace Dal
                     conn.Open(); 
                     using (ModelContext context = new(conn))
                     { 
-                        IQueryable<TEntity> queryable = context.Set<TEntity>();
+                        IQueryable<TEntity> queryable = context.Set<TEntity>(); 
 
                         if (predicates != null)
                         {
