@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\sb-admin-template\**" />
+    <Content Remove="wwwroot\sb-admin-template\**" />
+    <EmbeddedResource Remove="wwwroot\sb-admin-template\**" />
+    <None Remove="wwwroot\sb-admin-template\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.20">
       <PrivateAssets>all</PrivateAssets>
@@ -17,7 +24,6 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\sb-admin-template\" />
   </ItemGroup>
 
   <ItemGroup>

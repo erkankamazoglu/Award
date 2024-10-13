@@ -8,8 +8,7 @@ namespace AwardService
     {
         public override void Add(User entity)
         {
-            entity.Password = PasswordHash.Hash(entity.Password);
-
+            entity.Password = PasswordHash.Hash(entity.Password); 
             base.Add(entity);
         }
     }
