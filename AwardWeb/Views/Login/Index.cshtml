@@ -1,7 +1,37 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Utility.TypeCheck
+@using Utility.TypeConverter
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Giriş Ekranı";
+    Layout = "_EmptyLayout";
+    string errorMessage = ViewData["ErrorMessage"].ToSafeString();
 }
 
-<h1>Index</h1>
+<div class="container">
+    <main role="main" class="pb-3 px-5">
 
+        @if (!errorMessage.IsNullOrEmpty())
+        {
+            <div class="alert alert-danger">
+                @errorMessage
+            </div>
+        } 
+
+        <form asp-controller="Login" asp-action="Index" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <input type="text" id="Email" name="Email" class="form-control" placeholder="E-mail" />
+            </div>
+            <div class="form-group">
+                <input type="password" id="Password" name="Password" placeholder="Şifre" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Giriş Yap</button>
+        </form>
+    </main>
+</div>
+
+@section styles {
+    <link rel="stylesheet" href="~/css/form-style.css" asp-append-version="true" />
+}

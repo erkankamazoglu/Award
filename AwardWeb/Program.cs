@@ -1,12 +1,24 @@
 using AwardEntity.Base;
 using AwardService;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Utility.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
+{
+    option.Cookie.Name = "AwardAuthCookie";
+    option.LoginPath = "/Login/Index";
+    option.LogoutPath = "/Login/Index";
+    option.AccessDeniedPath = "/Login/Index";
+});
 
 builder.Services.AddDbContext<ModelContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -38,10 +50,14 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
+
+// Configure HttpContextHelper
+HttpContextHelper.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
 app.Run();

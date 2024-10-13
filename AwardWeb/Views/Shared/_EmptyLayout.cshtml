@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Award</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="~/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- FontAwesome CSS -->
+    <link href="~/vendor/@@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <!-- Animate CSS -->
+    <link href="~/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <!-- Main.css -->
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    @await RenderSectionAsync("styles", required: false)
+</head>
+<body>
+
+    @RenderBody()
+
+
+    <!-- jQuery -->
+    <script src="~/vendor/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="~/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery Validation -->
+    <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <!-- jQuery Validation Unobtrusive -->
+    <script src="~/vendor/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("scripts", required: false)
+</body>
+</html>

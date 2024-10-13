@@ -26,5 +26,8 @@ namespace AwardEntity
         [DisplayName("Şifre")]
         [Required]
         public string Password { get; set; } 
+
+        [DisplayName("Kullanıcı Rol")] 
+        public string UserRole { get; set; } 
     }
 }

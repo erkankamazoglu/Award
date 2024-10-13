@@ -1,66 +1,43 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Award</title>
+﻿@{
+    Layout = "_EmptyLayout";
+}  
 
-    <!-- Bootstrap CSS -->
-    <link href="~/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- FontAwesome CSS -->
-    <link href="~/vendor/@@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
-    <!-- Animate CSS -->
-    <link href="~/vendor/animate.css/animate.min.css" rel="stylesheet" />
-    <!-- Main.css -->
-    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
-    @await RenderSectionAsync("styles", required: false)
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Award</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="List">Kullanıcılar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Award" asp-action="List">Başarımlar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserAward" asp-action="List">Kullanıcı Başarımlar</a>
-                        </li>
-                    </ul>
-                </div>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Award</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="List">Kullanıcılar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Award" asp-action="List">Başarımlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="UserAward" asp-action="List">Kullanıcı Başarımlar</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            @* &copy; 2024 - Award - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
         </div>
-    </footer>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
 
-    <!-- jQuery -->
-    <script src="~/vendor/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="~/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery Validation -->
-    <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <!-- jQuery Validation Unobtrusive -->
-    <script src="~/vendor/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/js/main.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("scripts", required: false)
-</body>
-</html>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        @* &copy; 2024 - Award - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+    </div>
+</footer>
+
+
+@await RenderSectionAsync("styles", required: false)
+@await RenderSectionAsync("scripts", required: false)
