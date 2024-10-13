@@ -60,6 +60,6 @@ namespace AwardWeb.Controllers
         {
             _awardService.Delete(id);
             return RedirectToAction("List");
-        }
+        } 
     }
 }
