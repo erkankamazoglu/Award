@@ -57,7 +57,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
 
-
 // Configure HttpContextHelper
 HttpContextHelper.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
 app.Run();
